@@ -8,6 +8,7 @@ data Expr
   | Var String                 -- ^ Переменная.
   | And Expr Expr
   | Or Expr Expr
+  | Not Expr
   deriving (Show)
   
 resultProcessing :: Either String Bool -> Either String Bool -> (Bool -> Bool -> Bool) -> Either String Bool
@@ -23,3 +24,6 @@ eval vars (Var v) = case lookup v vars of
       Nothing -> Left $ "Invalid variable name:" ++ v ++ ". "
 eval vars (And e1 e2) = resultProcessing (eval vars e1) (eval vars e2) (&&)
 eval vars (Or e1 e2) = resultProcessing (eval vars e1) (eval vars e2) (||)
+eval vars (Not e) = case eval vars e of
+      Left err -> Left err
+      Right res -> Right (not res)
