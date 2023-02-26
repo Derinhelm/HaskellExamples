@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      EitherCalc
   other-modules:
       Paths_either_bool_calc
   hs-source-dirs:

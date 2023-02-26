@@ -1,4 +1,4 @@
-module Lib
+module EitherCalc
     ( Expr (..)
     , eval
     ) where
