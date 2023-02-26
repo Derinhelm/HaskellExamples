@@ -1,4 +1,4 @@
-module Lib
+module Calc
     ( Expr (..)
     , eval
     ) where
