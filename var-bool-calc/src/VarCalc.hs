@@ -1,4 +1,4 @@
-module Lib
+module VarCalc
     ( Expr (..)
     , eval
     ) where
