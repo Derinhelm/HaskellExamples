@@ -1,8 +1,12 @@
 module Fun
-    ( someFunc
+    ( getName
     ) where
 
-import Data.List (sort)
+import Data.Char (isUpper)
+import Data.List.Split (splitOn)
+import Data.Sort (sort)
 
-someFunc :: String
-someFunc = show $ sort $ ([1, 5, 3] :: [Int])
+
+getName :: [Char] -> [String]
+getName input = sort $ filter (\word -> isUpper $ head word) $ splitOn " " input
+    
