@@ -4,14 +4,14 @@ module Calc
     ) where
 
     
-data Expr a
+data Expr
   = Lit Bool
-  | And (Expr a) (Expr a)
-  | Or (Expr a) (Expr a)
-  | Not (Expr a)
+  | And Expr Expr
+  | Or Expr Expr
+  | Not Expr
   deriving (Show)
     
-eval :: Expr Bool -> Bool
+eval :: Expr -> Bool
 eval (Lit n) = n
 eval (And e1 e2) = eval e1 && eval e2
 eval (Or e1 e2) = eval e1 || eval e2
